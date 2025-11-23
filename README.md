@@ -5,8 +5,8 @@ JailbreakBench respository for group project
   //clone and deploy the code blah blah blah //
 
 # Functionality of this code:
-  // the idea of the paper/how it worked //
-  // what we added //
+  // the idea of the paper/how it worked // <p>
+  // what we added //<p>
   // how what we added works //
 
 # Other Papers relevant to the topic:

@@ -5,7 +5,10 @@ JailbreakBench respository for group project
   JailbreakBench is a model and database for providing standardized LLM jailbreak defense testing. JailbreakBench provides both benign and malicious prompts for LLM jailbreak detection (i.e. a standard set of prompts to test on and weather an LLM should or should not respond to the prompt) and a method of testing LLM jailbreak defese robustness through false positive and false negative rate as evaluated by multiple Judges.
 
 # How to use this code:
-  //clone and deploy the code blah blah blah //
+  The `jailbreakbench` package can be installed by running the following command:
+  ```bash
+  pip install jailbreakbench
+  ```
 
 # Functionality of this code:
   // the idea of the paper/how it worked // <p>

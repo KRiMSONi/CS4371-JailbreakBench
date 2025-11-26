@@ -15,7 +15,7 @@ JailbreakBench respository for group project
   ```
   CyberGuard should be cloned to your local machine with 
   ```bash
-  git clone https://
+  git clone [https://](https://github.com/KRiMSONi/CS4371-JailbreakBench.git)
   ```
 
 

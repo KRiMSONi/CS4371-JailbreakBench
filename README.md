@@ -17,6 +17,10 @@ JailbreakBench respository for group project
   ```bash
   git clone [https://](https://github.com/KRiMSONi/CS4371-JailbreakBench.git)
   ```
+  Then run the code with:
+  ```bash
+  python3 
+  ```
 
 
 ## Other Papers relevant to the topic:

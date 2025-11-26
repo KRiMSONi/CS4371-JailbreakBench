@@ -15,6 +15,8 @@ JailbreakBench respository for group project
   // what we added //<p>
   // how what we added works //
 
+# CyberGuard – Task 3 Demo:
+
 # Other Papers relevant to the topic:
   <b> Current paper: </b> <p>
   Z. Xu, F. Liu, H. Liu, "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs," 10.52202/079017-1012 // https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf

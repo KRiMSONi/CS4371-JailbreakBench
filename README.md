@@ -1,24 +1,24 @@
-## CS4371-JailbreakBench
+# CS4371-JailbreakBench
 JailbreakBench respository for group project
 
-# JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models
+## JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models
   JailbreakBench is a model and database for providing standardized LLM jailbreak defense testing. JailbreakBench provides both benign and malicious prompts for LLM jailbreak detection (i.e. a standard set of prompts to test on and weather an LLM should or should not respond to the prompt) and a method of testing LLM jailbreak defese robustness through false positive and false negative rate as evaluated by multiple Judges.
 
-# CyberGuard – Task 3 Demo:
+## CyberGuard – Task 3 Demo:
   Cyber-focused jailbreak detection/defense demo inspired by JailbreakBench: An Open Robustness Benchmark for Jailbreaking LLMs (LLM-2.pdf) and aligned with the CS 4371 proposal (Group 11). The demo implements a new idea for Task 3: a lightweight, topic-aware defense tuned to cyber-security jailbreaks (disable AV, network hacking, ransomware) with metrics similar to JailbreakBench (attack success rate, false positives on benign prompts).
-# Functionality of this code:
+## Functionality of this code:
   // the idea of the paper/how it worked // <p>
   // what we added //<p>
   // how what we added works //
 
-# How to use this code:
+## How to use this code:
   The `jailbreakbench` package can be installed by running the following command:
   ```bash
   pip install jailbreakbench
   ```
 
 
-# Other Papers relevant to the topic:
+## Other Papers relevant to the topic:
   <b> Current paper: </b> <p>
   Z. Xu, F. Liu, H. Liu, "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs," 10.52202/079017-1012 // https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf
   

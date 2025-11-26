@@ -7,8 +7,6 @@ from cyber_guard.data import ATTACK_PROMPTS, BENIGN_PROMPTS
 from cyber_guard.defense import DefenseConfig, JailbreakDefense
 from cyber_guard.responder import SafeResponder
 
-with open('out.txt', 'w') as f:
-    print('Filename:', filename, file=f)
 
 def run_eval(defense: JailbreakDefense) -> None:
     print("=== Defense evaluation (cyber jailbreak focus) ===")

@@ -22,7 +22,7 @@ JailbreakBench respository for group project
   Make sure you are in the directory where you cloned this repository. Then:
   ```bash
   cd CS4371-JailbreakBench
-  cd Project Code
+  cd .\Project Code\
   ```
   Then run the code with:
   ```bash

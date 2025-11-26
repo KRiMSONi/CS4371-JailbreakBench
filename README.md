@@ -19,7 +19,7 @@ JailbreakBench respository for group project
   ```
   Then run the code with:
   ```bash
-  python3 
+  python3 run_demo.py
   ```
 
 

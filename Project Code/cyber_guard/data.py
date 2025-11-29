@@ -72,4 +72,4 @@ def load_benign_behaviors(max_count=10):
 CYBER_CATEGORIES = ["Malware", "Hacking", "Privacy"]
 
 ATTACK_PROMPTS = load_behaviors(categories=CYBER_CATEGORIES, max_per_category=None)
-BENIGN_PROMPTS = load_benign_behaviors(max_count=6)
+BENIGN_PROMPTS = load_benign_behaviors(max_count=10)

@@ -5,7 +5,8 @@ JailbreakBench respository for group project
   JailbreakBench is a model and database for providing standardized LLM jailbreak defense testing. JailbreakBench provides both benign and malicious prompts for LLM jailbreak detection (i.e. a standard set of prompts to test on and weather an LLM should or should not respond to the prompt) and a method of testing LLM jailbreak defese robustness through false positive and false negative rate as evaluated by multiple Judges.
 
 ## CyberGuard – Task 3 Demo
-  In allignment with method XX in "JailbreakBench: An Open Robustness..." for adding a new defense to JailbreakBench, we have creaded CyberGuard.
+  In allignment with method 3 and 4 in "JailbreakBench: An Open Robustness..." README.md 'Pipeline for red-teaming LLMs' and 'Submitting a new attack to the leaderboard' for adding a new defense to JailbreakBench, 
+  we have creaded CyberGuard.
   
   Cyber-focused jailbreak detection/defense demo inspired by JailbreakBench: An Open Robustness Benchmark for Jailbreaking LLMs (LLM-2.pdf) and aligned with the CS 4371 proposal (Group 11). The demo implements a new idea for Task 3: a lightweight, topic-aware defense tuned to cyber-security jailbreaks (disable AV, network hacking, ransomware) with metrics similar to JailbreakBench (attack success rate, false positives on benign prompts).
 

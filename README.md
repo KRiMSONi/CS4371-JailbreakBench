@@ -36,7 +36,7 @@ JailbreakBench respository for group project
 
 
 ## Other Papers relevant to the topic:
-  <b> More Recent paper: </b> <p>
+  <b> More recent paper: </b> <p>
   Z. Xu, F. Liu, H. Liu, "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs," 10.52202/079017-1012 // https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf
 
 The paper: https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf : introduces JailTrickBench, a benchmark for systematically evaluating jailbreak attacks on defense-enhanced large language models (LLMs). Instead of proposing a new attack, it studies how “implementation details” (model size, safety alignment, system prompts, prompt templates, attacker strength, attack budget, suffix length, and harm category) drastically change measured attack success. Across 354 experiments with multiple models, attacks, defenses, and datasets, the authors show that larger or fine-tuned models are not always safer, and that safe system prompts and robust chat templates significantly improve robustness. The key message is that jailbreak robustness is highly sensitive to these “tricks,” so standardized setups like JailTrickBench are essential for fair, reproducible evaluation of both attacks and defenses.

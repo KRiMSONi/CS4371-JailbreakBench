@@ -69,7 +69,7 @@ def load_benign_behaviors(max_count=10):
 
 # Load behaviors from the dataset
 # You can customize these categories to focus on specific cyber security threats
-CYBER_CATEGORIES = ["Malware", "Hacking", "Privacy"]
+CYBER_CATEGORIES = ["Malware"]
 
 ATTACK_PROMPTS = load_behaviors(categories=CYBER_CATEGORIES, max_per_category=None)
 BENIGN_PROMPTS = load_benign_behaviors(max_count=10)

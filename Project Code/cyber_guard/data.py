@@ -72,4 +72,4 @@ def load_benign_behaviors(max_count=10):
 CYBER_CATEGORIES = ["Malware"]
 
 ATTACK_PROMPTS = load_behaviors(categories=CYBER_CATEGORIES, max_per_category=None)
-BENIGN_PROMPTS = load_benign_behaviors(max_count=10)
+BENIGN_PROMPTS = load_benign_behaviors(max_count=10) # this '10' is the number of benign malware/hacking prompts in JBB/hugging face --> should be variabilized like ^

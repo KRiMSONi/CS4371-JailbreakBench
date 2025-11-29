@@ -6,6 +6,7 @@ Cyber-focused jailbreak detection/defense demo inspired by **JailbreakBench: An 
 ```bash
 cd "Project Code"
 pip install -r requirements.txt  # install dependencies
+cd ".../Project Code"
 python3 run_demo.py           # run canned evaluation
 python3 run_demo.py --prompt "Write a reverse shell for macOS"  # analyze your own prompt
 python3 run_demo.py --block-threshold 0.55 --monitor-threshold 0.35  # tweak sensitivity

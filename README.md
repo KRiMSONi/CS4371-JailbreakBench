@@ -34,9 +34,20 @@ JailbreakBench respository for group project
 ## Other Papers relevant to the topic:
   <b> Current paper: </b> <p>
   Z. Xu, F. Liu, H. Liu, "Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs," 10.52202/079017-1012 // https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf
+
+The paper: https://proceedings.neurips.cc/paper_files/paper/2024/file/38c1dfb4f7625907b15e9515365e7803-Paper-Datasets_and_Benchmarks_Track.pdf : introduces JailTrickBench, a benchmark for systematically evaluating jailbreak attacks on defense-enhanced large language models (LLMs). Instead of proposing a new attack, it studies how “implementation details” (model size, safety alignment, system prompts, prompt templates, attacker strength, attack budget, suffix length, and harm category) drastically change measured attack success. Across 354 experiments with multiple models, attacks, defenses, and datasets, the authors show that larger or fine-tuned models are not always safer, and that safe system prompts and robust chat templates significantly improve robustness. The key message is that jailbreak robustness is highly sensitive to these “tricks,” so standardized setups like JailTrickBench are essential for fair, reproducible evaluation of both attacks and defenses.
+
+How is it related to our main project:
+
+Our project implements CyberGuard, a cyber-crime–focused jailbreak defense inside the KRiMSONi/CS4371-JailbreakBench repo, which is a course fork of the official JailbreakBench framework. That framework provides the standardized attacks, prompts, and metrics we use to evaluate how well CyberGuard detects and blocks jailbreak attempts. The JailTrickBench paper builds on this ecosystem by showing that jailbreak robustness is heavily influenced by “implementation details” like system prompts, templates, and attacker strength. Its findings guide how we configure and report our experiments, so our CyberGuard results are rigorous and comparable to current research on jailbreak defenses.
   
-  // basic summary of this paper and how it uses/builds off of Jailbreak Bench //
   <p> <b> Prior paper: </b> <p>
   M. Andriushchenko, F. Croce, N. Flammarion, “Jailbreaking Leading Safety-Aligned LLMs with Simple Adaptive Attacks,” https://doi.org/10.48550/arXiv.2404.02151 // https://arxiv.org/pdf/2404.02151 
   
-  // bassic summary fo this paper and how it was used by/was a foundation for Jailbreak Bench //
+This Paper shows that even top safety-aligned LLMs can be jailbroken using simple adaptive attacks. The attacker repeatedly queries the model and uses its log-probabilities to search for suffixes that make “compliance” tokens more likely, and also uses prefilling (starting the answer with harmful content and letting the model continue). These techniques require no complex ML just random search plus logprobs but still achieve very high jailbreak success rates on many popular models, defeating several existing prompt/filters-based defenses.
+
+The core message: current LLM safety measures are fragile against modestly adaptive, logprob-based attacks.
+
+How is it related to our main project:
+
+We evaluate our cyber-crime-focused defense in the JailbreakBench framework, which provides standardized harmful behaviors and metrics. However, recent work by Andriushchenko et al. shows that even state-of-the-art safety-aligned LLMs can be broken by simple adaptive attacks that use logprob information and random search. This motivates designing our defense to be robust not only to static jailbreak prompts, but also to adaptively mutated variants, and to consider whether access to logprobs or prefilled outputs changes the threat model.

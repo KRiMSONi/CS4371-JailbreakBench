@@ -10,7 +10,7 @@ if jbb_path.exists():
 
 import jailbreakbench as jbb
 
-s
+
 def load_behaviors(categories=None, max_per_category=None):
     """
     Load behaviors from the JailbreakBench dataset.

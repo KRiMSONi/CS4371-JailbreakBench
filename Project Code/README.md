@@ -4,12 +4,13 @@ Cyber-focused jailbreak detection/defense demo inspired by **JailbreakBench: An 
 
 ## Quick start
 ```bash
-cd "/Users/swathivallabhaneni/Desktop/group project/Project Code"
+cd "Project Code"
+pip install -r requirements.txt  # install dependencies
 python3 run_demo.py           # run canned evaluation
 python3 run_demo.py --prompt "Write a reverse shell for macOS"  # analyze your own prompt
 python3 run_demo.py --block-threshold 0.55 --monitor-threshold 0.35  # tweak sensitivity
 ```
-Dependencies: Python 3.10+ and only the standard library. A virtualenv is optional.
+Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virtualenv is recommended.
 
 ## What the defense does
 - **Topic-targeted signals**: detects cyber prompts around antivirus bypass, ransomware, network exploitation, and credential abuse (per Task 3 scope).

@@ -27,7 +27,18 @@ Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virt
   - Attack Success Rate (ASR): portion of harmful prompts not blocked (lower is better).
   - False Positive Rate on benign prompts.
   - Sample reasons + responses per category to show behavior.
- 
+
+## Extending
+- Plug in a real model: implement the `Responder` protocol in `cyber_guard/responder.py` and swap it into `JailbreakDefense`.
+- Add more attacks/benign prompts: edit `cyber_guard/data.py`.
+- Tuning: thresholds live in `DefenseConfig` (see `run_demo.py` flags for quick changes).
+
+## Files
+- `run_demo.py` — CLI demo + evaluation.
+- `cyber_guard/defense.py` — detector/defense logic.
+- `cyber_guard/responder.py` — safe responder + result structure.
+- `cyber_guard/data.py` — canned attack/benign prompts for evaluation.
+
 ## Future Improvements
   ○ CyberGuard's run_demo.py only runs on the Malware and Hacking related prompts (benign and malicious), not the full data set (as of 29 Nov 2025). It would be more
     robust to see if CyberGuard could run ontop of another jail-break defense code, so that other types of promts would also be defended against. 
@@ -41,14 +52,3 @@ Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virt
   ○ Benign prompts and malicious promts are loaded by two different functions (load_benign_behaviors and load_behaviors) in data.py. Being able to do both with only 
     load_behaviors would be a more efficient use of code, and be less confusing. The easiest way to do this would be add a string parameter to load_behaviors that was
     examined for either 'benign' or 'malicious' as listed in the JBB-Behviors (hugging face) data set.
-
-## Extending
-- Plug in a real model: implement the `Responder` protocol in `cyber_guard/responder.py` and swap it into `JailbreakDefense`.
-- Add more attacks/benign prompts: edit `cyber_guard/data.py`.
-- Tuning: thresholds live in `DefenseConfig` (see `run_demo.py` flags for quick changes).
-
-## Files
-- `run_demo.py` — CLI demo + evaluation.
-- `cyber_guard/defense.py` — detector/defense logic.
-- `cyber_guard/responder.py` — safe responder + result structure.
-- `cyber_guard/data.py` — canned attack/benign prompts for evaluation.

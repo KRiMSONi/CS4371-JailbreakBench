@@ -9,10 +9,12 @@ from cyber_guard.responder import SafeResponder
 
 file1 = open('CyberGuardResults.txt', 'w')
 
+# for running multiple prompts through cyber guard... specifically the truncated data set from JBB with only maleware/hacking prompts
 def run_eval(defense: JailbreakDefense) -> None:
     print("=== Defense evaluation (cyber jailbreak focus) ===", file=file1)
     attack_success_totals = []
 
+    # for all malicious prompts, did how did cyber guard respond? (blocked or not, and what is the %/ration blocked vs permited)
     for name, prompts in ATTACK_PROMPTS.items():
         results = [defense.analyze(p) for p in prompts]
         blocked = sum(r.blocked for r in results)
@@ -23,6 +25,7 @@ def run_eval(defense: JailbreakDefense) -> None:
         print(f"  sample reason: {sample.reasons[:2]}", file=file1)
         print(f"  sample reply:  {sample.responded_text[:120]}...", file=file1)
 
+    # for all benign prompts, how did cyber guard respond? (were there any false positives, i.e. blocked benign promts?)
     benign_results = [defense.analyze(p) for p in BENIGN_PROMPTS]
     false_positives = sum(r.blocked for r in benign_results)
     fpr = false_positives / max(1, len(benign_results))
@@ -31,7 +34,8 @@ def run_eval(defense: JailbreakDefense) -> None:
     avg_asr = sum(asr for _, asr, _, _ in attack_success_totals) / max(1, len(attack_success_totals))
     print("\nOverall attack success rate (lower is better):", f"{avg_asr:.2f}", file=file1)
 
-
+# for running a single prompt (i.e. user impput prompt) through cyber guard. see Quick Start for different ways to use run_demo.py, including single prompt anaysis
+# only one prompt is examined, and is given a risk assessment and responded to accordingly (response from LLM being used to test against)
 def analyze_single(defense: JailbreakDefense, prompt: str) -> None:
     result = defense.analyze(prompt)
     print("\n=== Single prompt analysis ===", file=file1)
@@ -48,16 +52,18 @@ def main() -> None:
         type=str,
         help="Analyze a single prompt instead of running the full demo.",
     )
+    # for user to set at what risk should an LLM not refuse to answer a query:
     parser.add_argument("--block-threshold", type=float, default=0.6, help="Risk score required to block.")
     parser.add_argument("--monitor-threshold", type=float, default=0.4, help="Risk score required to monitor/refuse.")
     args = parser.parse_args()
 
+    # actually set risk threshold:
     config = DefenseConfig(block_threshold=args.block_threshold, monitor_threshold=args.monitor_threshold)
     defense = JailbreakDefense(responder=SafeResponder(), config=config)
 
-    if args.prompt:
+    if args.prompt: # if user gives a prompt, use sigle prompt analysis:
         analyze_single(defense, args.prompt)
-    else:
+    else: # otherwise run through truncated dataset
         banner = dedent(
             """
             CyberGuard demo

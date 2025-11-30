@@ -12,6 +12,8 @@ JailbreakBench respository for group project
 
 
 ## How to use this code
+  Ensure that you have python downloaded. Our code works without issue on versions 3.11.9 through 3.13.
+  
   The `jailbreakbench` package can be installed by running the following command:
   ```bash
   pip install jailbreakbench

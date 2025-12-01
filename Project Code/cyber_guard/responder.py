@@ -25,9 +25,11 @@ class SafeResponder:
             "I can't help with harmful actions. "
             "If you're working on cyber security, focus on prevention and safety. "
         )
+        # Combine a fixed safety preface with a prompt-aware tip.
         return f"{safe_lead}Here's a constructive direction related to your question: {self._safe_tip(prompt)}"
 
     def _safe_tip(self, prompt: str) -> str:
+        # Minimal keyword routing to pick a relevant safe suggestion.
         lowered = prompt.lower()
         if any(word in lowered for word in ("antivirus", "malware", "virus")):
             return "use reputable anti-malware tools, keep signatures updated, and avoid running unknown executables."
@@ -42,6 +44,7 @@ class SafeResponder:
 
 @dataclass
 class DefenseResult:
+    # Bundle the defense decision, sanitized prompt, and model response for callers.
     prompt: str
     risk_score: float
     label: str

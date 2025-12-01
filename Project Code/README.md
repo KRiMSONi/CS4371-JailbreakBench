@@ -39,6 +39,15 @@ Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virt
 - `cyber_guard/responder.py` — safe responder + result structure.
 - `cyber_guard/data.py` — canned attack/benign prompts for evaluation.
 
+## Functionality of Code
+  ○ defense.py contains the main functionality of CyberGuard that has the methods we provide for determining if a prompt is benign or malicious (through a multi-
+    layered aproach that uses multiple methods of detection (i.e. keyword flagging (if a prompt contains "keylogger" etc.), jailbreak phrase flagging (if a prompt 
+    contains "roleplay" etc.), perterbations to average the risk of variations of the prompt, etc.).
+  ○ data.py is the function that organizes the subsets of prompts from JBB (hugging face) that CyberGuard tests on
+  ○ responder.py is a helper file to format the response for readability
+  ○ run_demo.py is the 'main' file that implements the other three .py files, with a 'default' that analyses the prompts from JBB (hugging face) that CyberGuard is 
+    designed to work on, and a 'single-prompt' method for CyberGurad to run on a single, user imputed prompt.
+
 ## Future Improvements
   ○ CyberGuard's run_demo.py only runs on the Malware and Hacking related prompts (benign and malicious), not the full data set (as of 29 Nov 2025). It would be more
     robust to see if CyberGuard could run ontop of another jail-break defense code, so that other types of promts would also be defended against. 
@@ -49,6 +58,6 @@ Dependencies: Python 3.10+ and the packages listed in `requirements.txt`. A virt
     on how many of a type of prompt are in the larger data set. It would be more flexible/usable long term if the truncated data set size was based on the number of 
     available prompts rather than a static number. (As of 29 Nov 2025)
   
-  ○ Benign prompts and malicious promts are loaded by two different functions (load_benign_behaviors and load_behaviors) in data.py. Being able to do both with only 
+  ○ Benign prompts and malicious prompts are loaded by two different functions (load_benign_behaviors and load_behaviors) in data.py. Being able to do both with only 
     load_behaviors would be a more efficient use of code, and be less confusing. The easiest way to do this would be add a string parameter to load_behaviors that was
     examined for either 'benign' or 'malicious' as listed in the JBB-Behviors (hugging face) data set.

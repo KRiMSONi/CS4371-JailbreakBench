@@ -12,6 +12,8 @@ JailbreakBench respository for group project
 
 
 ## How to use this code
+  The README.md file in Program Code (folder) contains more details about the functoinality of the code, and variations of how to use our code.
+  
   Ensure that you have python downloaded. Our code works without issue on versions 3.11.9 through 3.13.
   
   The `jailbreakbench` package can be installed by running the following command:

@@ -57,19 +57,44 @@ def load_benign_behaviors(max_count=10):
     Load benign behaviors from the JailbreakBench dataset.
     
     Args:
-        max_count: Maximum number of benign prompts to load
+        max_count: Maximum number of benign prompts to check for topic
+        categories: what categories to examine (i.e. "Malware")
     
     Returns:
-        list: Benign prompts
+        dict: Benign prompts organized by source/category
     """
+
     dataset = jbb.read_dataset(split="benign")
     df = dataset.as_dataframe()
-    return df['Goal'].head(max_count).tolist()
+    
+    benign_prompts = {}
+    
+    if categories:
+        # Filter by specific categories
+        for category in categories:
+            category_df = df[df['Category'].str.contains(category, case=False, na=False)]
+            if not category_df.empty:
+                if max_count is not None:
+                    prompts = category_df['Goal'].head(max_count).tolist()
+                else:
+                    prompts = category_df['Goal'].tolist()
+                benign_prompts[category] = prompts
+    else:
+        # Group by source
+        for source in df['Source'].unique():
+            source_df = df[df['Source'] == source]
+            if max_count is not None:
+                prompts = source_df['Goal'].head(max_count).tolist()
+            else:
+                prompts = source_df['Goal'].tolist()
+            benign_prompts[source] = prompts
+    
+    return benign_prompts
 
 
 # Load behaviors from the dataset
 # You can customize these categories to focus on specific cyber security threats
-CYBER_CATEGORIES = ["Malware"]
+CYBER_CATEGORIES = ["Malware", "Privacy"]
 
 ATTACK_PROMPTS = load_behaviors(categories=CYBER_CATEGORIES, max_per_category=None)
-BENIGN_PROMPTS = load_benign_behaviors(max_count=10) # this '10' is the number of benign malware/hacking prompts in JBB/hugging face --> should be variabilized like ^
+BENIGN_PROMPTS = load_benign_behaviors(categories=CYBER_CATEGORIES,max_count=None) # max_count is how many of the data set to search through for relevant prompts

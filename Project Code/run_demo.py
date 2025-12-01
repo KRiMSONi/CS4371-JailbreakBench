@@ -26,9 +26,10 @@ def run_eval(defense: JailbreakDefense) -> None:
         print(f"  sample reply:  {sample.responded_text[:120]}...", file=file1)
 
     # for all benign prompts, how did cyber guard respond? (were there any false positives, i.e. blocked benign promts?)
-    benign_results = [defense.analyze(p) for p in BENIGN_PROMPTS]
-    false_positives = sum(r.blocked for r in benign_results)
-    fpr = false_positives / max(1, len(benign_results))
+    for name, prompts in BENIGN_PROMPTS.items():
+        benign_results = [defense.analyze(p) for p in prompts]
+        false_positives = sum(r.blocked for r in benign_results)
+        fpr = false_positives / max(1, len(benign_results))
     print("\nBenign prompts blocked:", f"{false_positives}/{len(benign_results)}", f"FPR={fpr:.2f}", file=file1)
 
     avg_asr = sum(asr for _, asr, _, _ in attack_success_totals) / max(1, len(attack_success_totals))
